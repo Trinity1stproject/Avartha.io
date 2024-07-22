@@ -1,7 +1,6 @@
 import pymongo
 import hashlib
 
-
 class UserAuth:
     def __init__(self, db_uri="mongodb://localhost:27017/", db_name="Avarta"):
         self.client = pymongo.MongoClient(db_uri)
@@ -18,7 +17,7 @@ class UserAuth:
             return False, "Email already registered. Please login."
         
         self.collection.insert_one({"email": email, "password": hashed_password})
-        return True,"Registration successful!"
+        return True, "Registration successful!"
 
     def login(self, email: str, password: str):
         hashed_password = self.hash_password(password)

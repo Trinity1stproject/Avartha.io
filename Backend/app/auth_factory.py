@@ -5,3 +5,7 @@ class AuthFactory(ABC):
     @abstractmethod
     def create_user_auth(self) -> UserAuth:
         pass
+
+class UserAuthFactory(AuthFactory):
+    def create_user_auth(self) -> UserAuth:
+        return UserAuth()
